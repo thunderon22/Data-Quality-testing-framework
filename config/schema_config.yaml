@@ -1,0 +1,22 @@
+completeness_thresholds:
+
+  # zero nulls allowed
+  critical_columns:
+    - Transaction ID
+
+  # max 5% nulls allowed
+  high_importance:
+    max_null_pct: 5
+    columns:
+      - Transaction Date
+      - Item
+      - Quantity
+      - Price Per Unit
+      - Total Spent
+
+  # max 35% nulls allowed — these are severely dirty
+  low_importance:
+    max_null_pct: 35
+    columns:
+      - Payment Method
+      - Location
