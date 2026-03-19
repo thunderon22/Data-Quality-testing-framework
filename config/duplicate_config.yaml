@@ -1,0 +1,31 @@
+duplicate_detection:
+
+  # columns that must be 100% unique
+  unique_columns:
+    - Transaction ID
+
+  # column combinations for near duplicate check
+  near_duplicate_subsets:
+    - columns: ["Transaction ID", "Transaction Date", "Item"]
+      name: "transaction_item_combo"
+
+    - columns: ["Transaction ID", "Item", "Quantity", "Price Per Unit"]
+      name: "transaction_price_combo"
+
+  # text columns to normalize for semantic check
+  semantic_check_columns:
+    - Item
+    - Location
+    - Payment Method
+
+  # method: simple / fuzzy / transformer
+  semantic_detection:
+    method: "fuzzy"
+    fuzzy_threshold: 85
+
+  # known junk sentinel values to flag
+  sentinel_values:
+    - "ERROR"
+    - "UNKNOWN"
+    - "NULL"
+    - "N/A"
