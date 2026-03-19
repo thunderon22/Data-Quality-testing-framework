@@ -139,4 +139,3 @@ def test_ge_detects_critical_null(critical_null_df):
     r = ge_completeness_checks(critical_null_df)
     assert r["success"] is False
     assert r["statistics"]["unsuccessful_expectations"] >= 1
-
